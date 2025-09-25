@@ -4,7 +4,7 @@ Este projeto consiste num dashboard interativo para a análise de dados de voos 
 
 O `Panel` foi escolhido pela sua flexibilidade no controlo do layout e pela sua poderosa capacidade de criar dashboards reativos.
 
-## 📋 Funcionalidades
+## Funcionalidades
 
 - **Métricas Chave:** Visualização em tempo real do total de voos, total de atrasos (> 15 minutos) e o percentual de voos atrasados.
 - **Filtros Interativos:** Filtre os dados por um ou mais Anos e por uma ou mais Companhias Aéreas através de widgets na barra lateral.
@@ -13,14 +13,14 @@ O `Panel` foi escolhido pela sua flexibilidade no controlo do layout e pela sua 
 - **Evolução Mensal:** Gráfico de linhas que acompanha o volume total de voos ao longo dos meses.
 - **Dados Enriquecidos:** Utiliza ficheiros de códigos para exibir os nomes completos dos aeroportos e das companhias aéreas, tornando a análise mais clara e intuitiva.
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Python:** Linguagem principal do projeto.
 - **Panel:** Framework utilizado para construir a interface web interativa e reativa.
 - **Pandas:** Biblioteca para manipulação e análise dos dados.
 - **Plotly:** Biblioteca para a criação dos gráficos interativos.
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 Siga os passos abaixo para executar o dashboard no seu ambiente local.
 
@@ -63,7 +63,7 @@ Siga os passos abaixo para executar o dashboard no seu ambiente local.
 
 2.  A aplicação será aberta automaticamente no seu navegador.
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 .
@@ -75,11 +75,11 @@ Siga os passos abaixo para executar o dashboard no seu ambiente local.
 │   ├── VRA2023.csv
 │   └── VRA2024.csv
 ├── app.py              # Código principal da aplicação Panel
-├── requirements.txt      # Ficheiro com as dependências do projeto
-└── README.md             # Este ficheiro
+├── requirements.txt    # Ficheiro com as dependências do projeto
+└── README.md            
 ```
 
-## 📊 Fontes de Dados
+## Fontes de Dados
 
 - **Voos (VRA):** Ficheiros `VRA*.csv` contendo dados detalhados sobre cada voo (origem, destino, horários, situação).
 - **Códigos de Aeroportos:** `airport-codes.csv` para mapear os códigos ICAO para nomes de aeroportos e cidades.
