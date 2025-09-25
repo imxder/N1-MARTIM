@@ -2,7 +2,7 @@
 
 Este projeto consiste num dashboard interativo para a análise de dados de voos da aviação comercial brasileira. A aplicação, desenvolvida com a biblioteca **Panel**, permite a visualização de métricas e tendências sobre voos e atrasos, utilizando dados públicos da ANAC para os anos de 2022, 2023 e 2024.
 
-O `Panel` foi escolhido pela sua flexibilidade no controlo do layout e pela sua poderosa capacidade de criar dashboards reativos.
+O `Panel` foi escolhido pela sua flexibilidade no controle do layout e pela sua poderosa capacidade de criar dashboards reativos.
 
 ## Funcionalidades
 
