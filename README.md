@@ -1,24 +1,23 @@
 # Dashboard de Análise de Voos - Aviação Brasileira
 
-Este projeto consiste num dashboard interativo para a análise de dados de voos da aviação comercial brasileira. A aplicação, desenvolvida com a biblioteca **Panel**, permite a visualização de métricas e tendências sobre voos e atrasos, utilizando dados públicos da ANAC para os anos de 2022, 2023 e 2024.
+Este projeto consiste num dashboard interativo para a análise de dados de voos da aviação comercial brasileira. A aplicação, desenvolvida com a biblioteca **Streamlit**, permite a visualização de métricas e tendências sobre voos e atrasos, utilizando dados públicos da ANAC para os anos de 2022, 2023 e 2024.
 
-O `Panel` foi escolhido pela sua flexibilidade no controle do layout e pela sua poderosa capacidade de criar dashboards reativos.
+O `Streamlit` foi escolhido pela sua simplicidade e rapidez na criação de aplicações de dados interativas e visualmente atraentes.
 
 ## Funcionalidades
 
-- **Métricas Chave:** Visualização em tempo real do total de voos, total de atrasos (> 15 minutos) e o percentual de voos atrasados.
-- **Filtros Interativos:** Filtre os dados por um ou mais Anos e por uma ou mais Companhias Aéreas através de widgets na barra lateral.
-- **Top 10 Aeroportos:** Gráfico de barras horizontais que exibe os 10 aeroportos de origem com maior número de voos atrasados.
-- **Voos por Companhia Aérea:** Gráfico de barras horizontais que mostra a participação das 10 principais companhias no total de voos.
-- **Evolução Mensal:** Gráfico de linhas que acompanha o volume total de voos ao longo dos meses.
-- **Dados Enriquecidos:** Utiliza ficheiros de códigos para exibir os nomes completos dos aeroportos e das companhias aéreas, tornando a análise mais clara e intuitiva.
+- **Visão Geral:** Métricas principais (Total de Voos, Atrasos, Taxa de Atraso) exibidas de forma clara e objetiva.
+- **Análise de Aeroportos:** Gráfico de barras com o Top 10 aeroportos de origem com maior volume de voos atrasados.
+- **Performance das Companhias:** Gráfico comparativo que mostra a evolução anual do número de atrasos para as 10 principais companhias aéreas.
+- **Análise Sazonal:** Gráficos que detalham a distribuição de atrasos por dia da semana e por período do dia.
+- **Análise de Tendências:** Identificação de aeroportos com aumento ou redução consistente no número de atrasos, comparando os anos de 2022 e 2024.
 
 ## Tecnologias Utilizadas
 
 - **Python:** Linguagem principal do projeto.
-- **Panel:** Framework utilizado para construir a interface web interativa e reativa.
+- **Streamlit:** Framework utilizado para construir a interface web interativa.
 - **Pandas:** Biblioteca para manipulação e análise dos dados.
-- **Plotly:** Biblioteca para a criação dos gráficos interativos.
+- **Seaborn & Matplotlib:** Bibliotecas para a criação das visualizações de dados.
 
 ## Como Executar o Projeto
 
@@ -32,8 +31,8 @@ Siga os passos abaixo para executar o dashboard no seu ambiente local.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO_GIT>
-    cd <NOME_DA_PASTA_DO_PROJETO>
+    git clone <https://github.com/imxder/N1-MARTIM.git>
+    cd <N1-MARTIM>
     ```
 
 2.  **(Recomendado) Crie e ative um ambiente virtual:**
@@ -49,7 +48,7 @@ Siga os passos abaixo para executar o dashboard no seu ambiente local.
       ```
 
 3.  **Instale as dependências:**
-    (Certifique-se que o `requirements.txt` contém `panel`, `pandas` e `plotly`)
+    (Certifique-se que o `requirements.txt` contém `streamlit`, `pandas`, `seaborn` e `matplotlib`)
     ```bash
     pip install -r requirements.txt
     ```
@@ -58,7 +57,7 @@ Siga os passos abaixo para executar o dashboard no seu ambiente local.
 
 1.  Com o ambiente virtual ativo, execute o seguinte comando no terminal:
     ```bash
-    panel serve app.py --show
+    streamlit run app.py
     ```
 
 2.  A aplicação será aberta automaticamente no seu navegador.
@@ -74,13 +73,13 @@ Siga os passos abaixo para executar o dashboard no seu ambiente local.
 │   ├── VRA2022.csv
 │   ├── VRA2023.csv
 │   └── VRA2024.csv
-├── app.py              # Código principal da aplicação Panel
+├── app.py              # Código principal da aplicação Streamlit
 ├── requirements.txt    # Ficheiro com as dependências do projeto
-└── README.md            
+└── README.md             
 ```
 
 ## Fontes de Dados
 
 - **Voos (VRA):** Ficheiros `VRA*.csv` contendo dados detalhados sobre cada voo (origem, destino, horários, situação).
 - **Códigos de Aeroportos:** `airport-codes.csv` para mapear os códigos ICAO para nomes de aeroportos e cidades.
-- **Códigos de Companhias Aéreas:** `airlines-codes.csv` para mapear os códigos ICAO para os nomes das companhias.
+- **Códigos de Companhias Aéreas:** `airlines-codes.csv` para mapear os códigos para os nomes das companhias.
