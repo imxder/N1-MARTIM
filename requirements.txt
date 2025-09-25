@@ -1,4 +1,3 @@
-flask
+panel
 pandas
-seaborn
-matplotlib
+plotly
