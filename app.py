@@ -195,14 +195,14 @@ def carregar_dados():
 df_realizados = carregar_dados()
 
 # ----------- HEADER -----------
-st.markdown("<h1 style='text-align: center; margin-bottom: 8px;'>🌌 Painel Dark de Voos no Brasil</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; margin-bottom: 8px;'>Painel de Voos no Brasil</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center; color:#cfece3; margin-top: -8px;'>Análises de atrasos e tendências (2022-2024)</p>", unsafe_allow_html=True)
 
 # ----------- SIDEBAR: FILTROS -----------
-st.sidebar.title("🎛️ Filtros")
+st.sidebar.title("Filtros")
 anos_disponiveis = sorted(df_realizados['ano'].unique())
 anos_selecionados = st.sidebar.multiselect(
-    "📅 Selecione o(s) Ano(s)", options=anos_disponiveis, default=anos_disponiveis
+    "Selecione o(s) Ano(s)", options=anos_disponiveis, default=anos_disponiveis
 )
 if not anos_selecionados:
     st.sidebar.warning("Por favor, selecione pelo menos um ano.")
@@ -212,7 +212,7 @@ if not anos_selecionados:
 df_filtrado = df_realizados[df_realizados['ano'].isin(anos_selecionados)].copy()
 
 # ----------- KPIs CUSTOMIZADOS -----------
-st.subheader("📊 Indicadores Gerais")
+st.subheader("Indicadores Gerais")
 total_voos = int(df_filtrado.shape[0])
 total_atrasos = int(df_filtrado['voo_atrasado'].sum())
 percentual_atrasos = (total_atrasos / total_voos) * 100 if total_voos > 0 else 0.0
@@ -223,10 +223,10 @@ st.markdown(f"""
         🛫<br>Voos Realizados<br><b style="font-size:20px;">{total_voos:,}</b>
     </div>
     <div class="metric-card green-card">
-        ⏰<br>Atrasos (>15 min)<br><b style="font-size:20px;">{total_atrasos:,}</b>
+        <br>Atrasos (>15 min)<br><b style="font-size:20px;">{total_atrasos:,}</b>
     </div>
     <div class="metric-card red-card">
-        ⚠️<br>Taxa de Atrasos<br><b style="font-size:20px;">{percentual_atrasos:.2f}%</b>
+        <br>Taxa de Atrasos<br><b style="font-size:20px;">{percentual_atrasos:.2f}%</b>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -234,7 +234,7 @@ st.markdown(f"""
 st.divider()
 
 # ----------- AEROPORTOS COM MAIS ATRASOS -----------
-st.header("🛑 Top 10 Aeroportos com Mais Atrasos na Partida")
+st.header("Top 10 Aeroportos com Mais Atrasos na Partida")
 atrasos_por_aeroporto = df_filtrado.groupby('nome_aeroporto_origem')['voo_atrasado'].sum().sort_values(ascending=False).head(10)
 
 if not atrasos_por_aeroporto.empty:
@@ -261,7 +261,7 @@ else:
     st.warning("Não há dados de atraso de aeroportos para os filtros selecionados.")
 
 # ----------- COMPARATIVO ANUAL POR COMPANHIA -----------
-st.header("✈️ Comparativo Anual de Atrasos (Top 10 Companhias)")
+st.header("Comparativo Anual de Atrasos (Top 10 Companhias)")
 if len(anos_selecionados) > 1:
     top_10_nomes = df_filtrado.groupby('Nome')['voo_atrasado'].sum().nlargest(10).index
     df_para_plot = df_filtrado[df_filtrado['Nome'].isin(top_10_nomes)]
@@ -293,7 +293,7 @@ else:
     st.info("Selecione mais de um ano no filtro para visualizar a comparação entre companhias aéreas.")
 
 # ----------- ATRASOS POR DIA DA SEMANA E PERÍODO -----------
-st.header("📆 Atrasos por Dia da Semana e Por Período do Dia")
+st.header("Atrasos por Dia da Semana e Por Período do Dia")
 col_dia, col_periodo = st.columns(2)
 
 with col_dia:
@@ -340,7 +340,7 @@ with col_periodo:
 st.divider()
 
 # ----------- TENDÊNCIAS 2022-2024 -----------
-st.header("📈📉 Tendências de Atrasos (2022 → 2024)")
+st.header("Tendências de Atrasos (2022 → 2024)")
 
 anos_necessarios_tendencia = [2022, 2023, 2024]
 anos_presentes_no_filtro = list(df_filtrado['ano'].unique())
@@ -369,7 +369,7 @@ if all(ano in anos_presentes_no_filtro for ano in anos_necessarios_tendencia):
     col_tend_aumento, col_tend_reducao = st.columns(2)
 
     with col_tend_aumento:
-        st.subheader("Tendência de Aumento 📈")
+        st.subheader("Tendência de Aumento")
         st.markdown("Aeroportos com aumento consistente de atrasos entre 2022 e 2024.")
         if not df_aumento.empty:
             top_10_aumento = df_aumento.head(10)
@@ -389,7 +389,7 @@ if all(ano in anos_presentes_no_filtro for ano in anos_necessarios_tendencia):
             st.info("Nenhum aeroporto apresentou tendência consistente de aumento.")
 
     with col_tend_reducao:
-        st.subheader("Tendência de Redução 📉")
+        st.subheader("Tendência de Redução")
         st.markdown("Aeroportos com redução consistente de atrasos entre 2022 e 2024.")
         if not df_reducao.empty:
             top_10_reducao = df_reducao.head(10).copy()
