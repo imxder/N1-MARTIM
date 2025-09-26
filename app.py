@@ -9,7 +9,7 @@ sns.set_style("darkgrid")
 
 # ----------- CONFIGURAÇÃO DA PÁGINA -----------
 st.set_page_config(
-    page_title="Painel Dark de Voos no Brasil",
+    page_title="Painel de Voos no Brasil",
     page_icon="🌌",
     layout="wide"
 )
