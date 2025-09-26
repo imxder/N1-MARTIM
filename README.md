@@ -31,8 +31,8 @@ Siga os passos abaixo para executar o dashboard no seu ambiente local.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone <https://github.com/imxder/N1-MARTIM.git>
-    cd <N1-MARTIM>
+    git clone https://github.com/imxder/N1-MARTIM.git
+    cd N1-MARTIM
     ```
 
 2.  **(Recomendado) Crie e ative um ambiente virtual:**
